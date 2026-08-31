@@ -1,0 +1,21 @@
+name: Compilar Plugin Xbox 360
+
+on:
+  push:
+    branches: [ "main", "principal" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Baixar Código
+      uses: actions/checkout@v3
+
+    - name: Configurar MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Compilar Projeto
+      run: |
+        echo Compilando plugin do Xbox 360...
